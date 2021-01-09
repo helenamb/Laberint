@@ -10,7 +10,7 @@ using UnityEngine;
 /// DATA:   30/11/2020
 /// VERSIÓ: 1.0
 /// CONTROL DE VERSIONS
-///         1.0: primera versió. Definició del gir de l'sprite.
+///         1.0: Definició del gir de l'sprite.
 /// ----------------------------------------------------------------------------------
 /// </summary>
 
@@ -18,11 +18,15 @@ public class ScrPickup : MonoBehaviour
 {
     [SerializeField] float velocitatGir = 1;
 
+    ScrControlGame scrCG;
+
     public int valor = 1;   // valor de puntuació que valdrà cada pickup.
 
     void Start()
     {
-        
+        scrCG = GameObject.Find("Game Manager").GetComponent<ScrControlGame>();
+
+        scrCG.pickups++;   // al inicialitzar el joc, sumarà un per cada pickup
     }
 
     void Update()

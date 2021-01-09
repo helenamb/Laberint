@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Pickup
+  - ClauVermella
+  - ClauBlava
+  - ClauVerda
+  - ParetElectrica
+  - Virus
+  - Sortida
+  - Victoria
+  - ParetNormal
+  - SuperPickup
   layers:
   - Default
   - TransparentFX
