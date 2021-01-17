@@ -22,15 +22,19 @@ public class ScrUI : MonoBehaviour
     [SerializeField]
     Text puntuacio, vida, temps;
 
+    public Text pickupsAgafats;
+    
     float crono = 0;
 
     private void Start()
     {
-        scrCG = GameObject.Find("Game Manager").GetComponent<ScrControlGame>();
+        scrCG = GameObject.Find("Game Manager").GetComponent<ScrControlGame>(); // definim la referència a l'script ControlGame
     }
 
     void Update()
     {
+        // Definim tots els casos en els quals es valors de la UI no s'han d'actualitzar
+        
         if (!scrCG.nivellAcabat)
         {
             if (!scrCG.morint)

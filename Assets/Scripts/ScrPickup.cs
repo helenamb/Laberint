@@ -24,13 +24,13 @@ public class ScrPickup : MonoBehaviour
 
     void Start()
     {
-        scrCG = GameObject.Find("Game Manager").GetComponent<ScrControlGame>();
+        scrCG = GameObject.Find("Game Manager").GetComponent<ScrControlGame>(); //creem la referència a l'script ControlGame
 
         scrCG.pickups++;   // al inicialitzar el joc, sumarà un per cada pickup
     }
 
     void Update()
     {
-        transform.Rotate(0, 0, velocitatGir * Time.deltaTime);
+        transform.Rotate(0, 0, velocitatGir * Time.deltaTime);  //definim la rotació que tindran els pickups
     }
 }

@@ -31,6 +31,8 @@ public class ScrMenúPrincipal : MonoBehaviour
 
     void Start()
     {
+        // Desactiva les diverses pantalles de les opcions a les quals tenim accés en el menú principal. 
+
         sortir.enabled = false;
         controls.enabled = false;
         escapeControls.enabled = false;
@@ -46,7 +48,9 @@ public class ScrMenúPrincipal : MonoBehaviour
 
     void OpcionsMenu()
     {
-        if (Input.GetKeyDown(KeyCode.J)) Jugar();
+        // En prémer una tecla, activem una opció.
+
+        if (Input.GetKeyDown(KeyCode.J)) Jugar();   
 
         if (Input.GetKeyDown(KeyCode.C)) Controls();
 
@@ -54,7 +58,7 @@ public class ScrMenúPrincipal : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S)) Sortir();
 
-        if (sortint && Input.GetKeyDown(KeyCode.Escape))
+        if (sortint && Input.GetKeyDown(KeyCode.Escape))    // Si hem premut S i premem Escape, tornem al menú.
         {
             AudioSource.PlayClipAtPoint(soOpcio, Camera.main.transform.position, volum);
 
@@ -62,14 +66,14 @@ public class ScrMenúPrincipal : MonoBehaviour
             sortir.enabled = false;
         }
 
-        if (sortint && Input.GetKeyDown(KeyCode.Return))
+        if (sortint && Input.GetKeyDown(KeyCode.Return))    // Si hem premut S i premem Enter, tanquem l'aplicació.
         {
             AudioSource.PlayClipAtPoint(soOpcio, Camera.main.transform.position, volum);
 
             Application.Quit();
         }
 
-        if (llegintcontrols && Input.GetKeyDown(KeyCode.Escape))
+        if (llegintcontrols && Input.GetKeyDown(KeyCode.Escape))    // Si hem premut C i premem Escape, tornem al menú.
         {
             AudioSource.PlayClipAtPoint(soOpcio, Camera.main.transform.position, volum);
 
@@ -81,6 +85,8 @@ public class ScrMenúPrincipal : MonoBehaviour
 
     public void Jugar()
     {
+        // Carrega l'escena 1 (el primer nivell).
+
         AudioSource.PlayClipAtPoint(soOpcio, Camera.main.transform.position, volum);
 
         SceneManager.LoadScene(1);
@@ -88,6 +94,8 @@ public class ScrMenúPrincipal : MonoBehaviour
 
     void Controls()
     {
+        // Activa la pantalla amb la informació sobre els controls.
+
         AudioSource.PlayClipAtPoint(soOpcio, Camera.main.transform.position, volum);
 
         controls.enabled = true;
@@ -97,6 +105,8 @@ public class ScrMenúPrincipal : MonoBehaviour
 
     void Web()
     {
+        // Carrega un enllaç extern.
+
         AudioSource.PlayClipAtPoint(soOpcio, Camera.main.transform.position, volum);
 
         Application.OpenURL("https://www.linkedin.com/in/helenamarti/");
@@ -104,6 +114,8 @@ public class ScrMenúPrincipal : MonoBehaviour
 
     void Sortir()
     {
+        // Activa la pantalla de confirmació de la sortida. 
+
         AudioSource.PlayClipAtPoint(soOpcio, Camera.main.transform.position, volum);
 
         sortir.enabled = true;

@@ -21,12 +21,7 @@ public class ScrPorta : MonoBehaviour
         this.GetComponent<Animator>().enabled = false;
     }
 
-    void Update()
-    {
-
-    }
-
-    public void ObrirPorta()
+    public void ObrirPorta()    // Activa l'animació establerta i destrueix el GameObject un cop finalitzada
     {
         this.GetComponent<Animator>().enabled = true;
         Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);

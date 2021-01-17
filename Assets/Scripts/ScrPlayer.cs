@@ -32,20 +32,29 @@ public class ScrPlayer : MonoBehaviour
     Rigidbody2D rb;
     ScrPickup scrP;
     ScrControlGame scrCG;
+    ScrUI scrUI;
 
     public AudioClip soParetNormal, soParetXunga, soPickup, soSuperPickup, soVirus, soClau;
 
     void Start()
     {
+        // Definim les referències que necessitarem utilitzar en aquest script
+        
         rb = GetComponent<Rigidbody2D>();
 
         scrCG = GameObject.Find("Game Manager").GetComponent<ScrControlGame>();
+        scrUI = GameObject.Find("Canvas").GetComponent<ScrUI>();
+
+        // Desactivem la visibilitat dels elements del canvas corresponents que són controlats en aquest script per a que no apareguin des del primer moment
 
         nivellComplert.enabled = false;
+        scrUI.pickupsAgafats.enabled = false;
     }
 
     private void FixedUpdate()
     {
+        // Controlem els casos en els quals el jugador no podrà moure el Player (quan acaba el nivell, es posa el menú de pausa, mor...)
+
         if (!scrCG.nivellAcabat)
         {
             if (!scrCG.morint)
@@ -63,12 +72,17 @@ public class ScrPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Controlem tots els elements amb els que pot col·lisionar el player i el que passarà en cada cas
+
         if (collision.CompareTag("Pickup"))
         {
-            AudioSource.PlayClipAtPoint(soPickup, Camera.main.transform.position, volumPickups);
+            AudioSource.PlayClipAtPoint(soPickup, Camera.main.transform.position, volumPickups);    // Reprodueix el so corresponent
+
+            // En xocar suma punts, suma un al valor total de pickups agafats, destrueix el pickup i resta un al valor de pickups restants a l'escena.
 
             scrP = collision.GetComponent<ScrPickup>();
             scrCG.punts += scrP.valor;
+            scrCG.pickupsMenjats++;
             Destroy(collision.gameObject);
             scrCG.pickups--;
         }
@@ -77,16 +91,20 @@ public class ScrPlayer : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(soSuperPickup, Camera.main.transform.position, volumPickups);
 
+            // En xocar suma punts, suma un al valor total de pickups agafats, destrueix el pickup i resta un al valor de pickups restants a l'escena.
+
             scrP = collision.GetComponent<ScrPickup>();
             scrCG.punts += scrP.valor;
+            scrCG.pickupsMenjats++;
             Destroy(collision.gameObject);
             scrCG.pickups--;
         }
 
-
         if (collision.CompareTag("ClauVermella"))
         {
             AudioSource.PlayClipAtPoint(soClau, Camera.main.transform.position, volumGeneral);
+
+            // En xocar crida la funció en l'ScrPorta que fa que es reprodueixi l'animació d'obrir la porta, i destrueix la clau
 
             portaVermella.GetComponent<ScrPorta>().ObrirPorta();
             Destroy(collision.gameObject);
@@ -112,6 +130,8 @@ public class ScrPlayer : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(soClau, Camera.main.transform.position, volumGeneral);
 
+            // En xocar resta vida, i controlem que el valor de la vida no pugui ser més petit que 0. Destruïm el GameObject.
+
             scrCG.vida--;
             if (scrCG.vida < 0) scrCG.vida = 0;
 
@@ -120,13 +140,21 @@ public class ScrPlayer : MonoBehaviour
 
         if (collision.CompareTag("Sortida"))
         {
+            // En xocar mostra la pantalla de nivell acabat, amb el recompte dels pickups totals agafats en el nivell. 
+
             nivellComplert.enabled = true;
             scrCG.nivellAcabat = true;
+            scrUI.pickupsAgafats.enabled = true;
+            scrUI.pickupsAgafats.text = "Pickups recol·lectats: " + scrCG.pickupsMenjats;
         }
 
         if (collision.CompareTag("Victoria"))
         {
+            // En xocar mostra la pantalla de victòria, amb el recompte dels pickups totals agafats en el nivell. 
+
             scrCG.victoria = true;
+            scrUI.pickupsAgafats.enabled = true;
+            scrUI.pickupsAgafats.text = "Pickups recol·lectats: " + scrCG.pickupsMenjats;
         }
     }
 
@@ -136,13 +164,15 @@ public class ScrPlayer : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(soParetXunga, Camera.main.transform.position, volumGeneral);
             
+            // En xocar resta vida al Player i controla que la salut no pugui ser més petita que 0.
+
             scrCG.vida--;
             if (scrCG.vida < 0) scrCG.vida = 0;
         }
 
         if (collision.gameObject.CompareTag("ParetNormal"))
         {
-            AudioSource.PlayClipAtPoint(soParetNormal, Camera.main.transform.position, volumGeneral);
+            AudioSource.PlayClipAtPoint(soParetNormal, Camera.main.transform.position, volumGeneral);   // reprodueix un so en col·lisionar
         }
     }
 
@@ -151,6 +181,6 @@ public class ScrPlayer : MonoBehaviour
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
 
-        rb.AddForce(new Vector2(x * forsa, y * forsa));
+        rb.AddForce(new Vector2(x * forsa, y * forsa)); // físiques del moviment del player
     }
 }
