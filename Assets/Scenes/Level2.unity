@@ -946,8 +946,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.5998001, y: -0.000076293945}
-  m_SizeDelta: {x: 1332.2803, y: 750.4689}
+  m_AnchoredPosition: {x: -0.72536, y: -0.49309}
+  m_SizeDelta: {x: 1501.7585, y: 845.9354}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &536094322
 MonoBehaviour:
@@ -1837,8 +1837,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.5, y: 0.00177}
-  m_SizeDelta: {x: 1628.55, y: 916.6508}
+  m_AnchoredPosition: {x: -1.4293, y: 2.2671}
+  m_SizeDelta: {x: 1915.5933, y: 1078.217}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1216294658
 MonoBehaviour:
@@ -3703,8 +3703,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.6, y: 0.0014801}
-  m_SizeDelta: {x: 1700.469, y: 957.8711}
+  m_AnchoredPosition: {x: -1.0605, y: -0.30271}
+  m_SizeDelta: {x: 1917.6609, y: 1080.2152}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1948869817
 MonoBehaviour:
@@ -3864,8 +3864,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_AnchoredPosition: {x: -2.038, y: 1.2}
+  m_SizeDelta: {x: 1915.9031, y: 1077.6954}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1992497602
 MonoBehaviour:
@@ -4078,6 +4078,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortaVermella
       objectReference: {fileID: 0}
+    - target: {fileID: 896543863534913282, guid: 514579dcee30889478f22cf3c43ce6ec,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 896543863534913341, guid: 514579dcee30889478f22cf3c43ce6ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4213,6 +4218,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1556774748839950422, guid: a3dc7c19b95df8d49b53cba68b481c31,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1556774748839950423, guid: a3dc7c19b95df8d49b53cba68b481c31,
         type: 3}
       propertyPath: m_Name
@@ -4281,6 +4291,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2451475192867943857, guid: 71a8fcca17840d5438e4bd65bae372c7,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2451475192867943862, guid: 71a8fcca17840d5438e4bd65bae372c7,
         type: 3}
@@ -4440,6 +4455,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortaVerda
       objectReference: {fileID: 0}
+    - target: {fileID: 3043757268749772983, guid: 96ae8b0a8e5dff1408b36f04a60f65a3,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96ae8b0a8e5dff1408b36f04a60f65a3, type: 3}
 --- !u!1 &3043757270710843581 stripped
@@ -4510,6 +4530,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6323986918804901249, guid: 5d4be97511cab6c42a42d21492cbcdc2,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6323986918804901250, guid: 5d4be97511cab6c42a42d21492cbcdc2,
         type: 3}
       propertyPath: m_Name
@@ -4528,6 +4553,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PortaBlava
+      objectReference: {fileID: 0}
+    - target: {fileID: 8507959229082414377, guid: 4f3023db0a77079469a269ffb7f282ef,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8507959229082414382, guid: 4f3023db0a77079469a269ffb7f282ef,
         type: 3}
